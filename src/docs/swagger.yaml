@@ -1,0 +1,654 @@
+openapi: 3.0.0
+info:
+  title: UnaHur Anti-Social Net API - Grupo 404
+  version: 1.0.0
+  description: API para gestionar usuarios, publicaciones, imágenes, comentarios y etiquetas en una red social anti-social.
+
+servers:
+  - url: http://localhost:3000
+
+# ==== DEFINICIONES DE TAGS ====
+tags:
+  - name: User
+    description: Operaciones relacionadas con usuarios
+  - name: Post
+    description: Operaciones relacionadas con publicaciones
+  - name: Image
+    description: Operaciones relacionadas con imágenes
+  - name: Comment
+    description: Operaciones relacionadas con comentarios
+  - name: Tag
+    description: Operaciones relacionadas con etiquetas
+paths:
+  # ==== USER ====
+  /user/getUser/{id}:
+    get:
+      tags:
+        - User
+      summary: Obtener usuario por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Usuario obtenido con éxito
+
+  /user/getAllUsers:
+    get:
+      tags:
+        - User
+      summary: Obtener todos los usuarios
+      description: Retorna una lista de todos los usuarios registrados.
+        - Usuarios
+      responses:
+        '200':
+          description: Lista de usuarios obtenida exitosamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        '500':
+          description: Error del servidor
+
+  /user/createUser:
+    post:
+      tags:
+        - User
+      summary: Crear un nuevo usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+            example:
+              nickName: usuario1
+              email: usuario@ejemplo.com
+      responses:
+        '201':
+          description: Usuario creado
+  /user/updateNickName/{id}:
+    put:
+      tags:
+        - User
+      summary: Actualizar nickname del usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nickName:
+                  type: string
+            example:
+              nickName: otroNickName
+      responses:
+        '200':
+          description: Nickname actualizado
+  /user/updateEmail/{id}:
+    put:
+      tags:
+        - User
+      summary: Actualizar email del usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+            example:
+              email: "otroEmail@ejemplo.com"
+      responses:
+        '200':
+          description: Email actualizado
+  /user/seguirUsuario/{id}/{idASeguir}:
+    post:
+      tags:
+        - User
+      summary: Seguir a otro usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+        - in: path
+          name: idASeguir
+          required: true
+          schema: { type : string }
+      responses:
+        '200':
+          description: Usuario seguido
+  /user/deleteUser/{id}:
+    delete:
+      tags:
+        - User
+      summary: Eliminar un usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      responses:
+        '204':
+          description: Usuario eliminado
+
+  # ==== POST ====
+  /post/getPost/{id}:
+    get:
+      tags:
+        - Post
+      summary: Obtener post por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      responses:
+        '200':
+          description: Post obtenido
+  /post/getAllPost:
+    get:
+      tags:
+        - Post
+      summary: Obtener todos los posts
+      description: Retorna una lista de todos los posts registrados.
+        - Posts
+      responses:
+        '200':
+          description: Lista de posts obtenida
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        '500':
+          description: Error del servidor
+
+  /post/getAllUserPost/{id}:
+    get:
+      tags:
+        - Post
+      summary: Obtener todos los posts de un usuario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      responses:
+        '200':
+          description: Posts del usuario
+
+  /post/createPost:
+    post:
+      tags:
+        - Post
+      summary: Crear un nuevo post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - nickName
+                - contenido
+              properties:
+                nickName:
+                  type: string
+                  example: usuario1
+                  description: Nickname del usuario que crea el post
+                contenido:
+                  type: string
+                  example: nuevo post prueba
+                  description: Contenido del post
+      responses:
+        '201':
+          description: Post creado exitosamente
+        '400':
+          description: Solicitud inválida, falta nickName o contenido
+
+  /post/updatePost/{id}:
+    put:
+      tags:
+        - Post
+      summary: Actualizar un post
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                contenido:
+                  type: string
+            example:
+              contenido: Contenido actualizado del post.
+      responses:
+        '200':
+          description: Post actualizado
+  /post/deletePost/{id}:
+    delete:
+      tags:
+        - Post
+      summary: Eliminar post
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      responses:
+        '204':
+          description: Post eliminado
+
+  # ==== IMAGE ====
+  /image/getImage/{id}:
+    get:
+      tags:
+        - Image
+      summary: Obtener imagen por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      responses:
+        '200':
+          description: Imagen obtenida
+
+  /image/getImages:
+    get:
+      tags:
+        - Image
+      summary: Obtener todas las imágenes
+      description: Retorna una lista de todas las imágenes registradas.
+        - Imágenes
+      responses:
+        '200':
+          description: Lista de imágenes obtenida
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Image'
+        '500':
+          description: Error del servidor
+
+  
+  /image/addImages/{id}:
+    post:
+      tags:
+        - Image
+      summary: Agregar múltiples imágenes a un post
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type : string
+          description: ID del post al que se le agregarán las imágenes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    format: uri
+            example: 
+              - url: https://www.ejemplo.com/imagen1.jpg
+              - url: https://www.ejemplo.com/imagen2.jpg
+      responses:
+        '201':
+          description: Imágenes agregadas correctamente
+        '400':
+          description: Error en la solicitud
+
+  /image/updateImage/{id}:
+    put:
+      tags:
+        - Image
+      summary: Actualizar imagen
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                url:
+                  type: string
+                  format: uri
+            example:
+              url: https://www.ejemplo.com/imagen_actualizada.jpg
+      responses:
+        '200':
+          description: Imagen actualizada
+  /image/deleteImage/{id}:
+    delete:
+      tags:
+        - Image
+      summary: Eliminar imagen
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      responses:
+        '204':
+          description: Imagen eliminada
+  /image/getImagesToPost/{id}:
+    get:
+      tags:
+        - Image
+      summary: Obtener todas las imágenes de un post
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      responses:
+        '200':
+          description: Imágenes del post
+
+  # ==== COMMENT ====
+  /comment/getComment/{id}:
+    get:
+      tags:
+        - Comment
+      summary: Obtener un comentario
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      responses:
+        '200':
+          description: Comentario obtenidoF
+
+  /comment/getAllComments:
+    get:
+      tags:
+        - Comment
+      summary: Obtener todos los comentarios
+      description: Retorna una lista de todos los comentarios registrados.
+        - Comentarios
+      responses:
+        '200':
+          description: Lista de comentarios obtenida
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+        '500':
+          description: Error del servidor
+
+  /comment/getAllPostComments/{id}:
+    get:
+      tags:
+        - Comment
+      summary: Obtener todos los comentarios de un post
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      responses:
+        '200':
+          description: Comentarios obtenidos
+  /comment/createComment/{id}:
+    post:
+      tags: 
+        - Comment
+      summary: Crear un comentario ingresando el id del post
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                comentario:
+                  type: string
+            example:
+              comentario: Este es un comentario de ejemplo.
+      responses:
+        '201':
+          description: Comentario creado
+
+  /comment/updateComment/{id}:
+    put:
+      tags:
+        - Comment
+      summary: Actualizar un comentario ingresando su id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                comentario:
+                  type: string
+            example:
+              comentario: Comentario actualizado.
+      responses:
+        '200':
+          description: Comentario actualizado
+  /comment/deleteComment/{id}:
+    delete:
+      tags:
+        - Comment
+      summary: Eliminar un comentario ingresando su id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      responses:
+        '204':
+          description: Comentario eliminado
+
+  # ==== TAG ====
+  /tag/getTag/{id}:
+    get:
+      tags:
+        - Tag
+      summary: Obtener una etiqueta
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      responses:
+        '201':
+          description: Etiqueta obtenida
+
+  /tag/getAllTags:
+    get:
+      tags:
+        - Tag
+      summary: Obtener todas las etiquetas
+      description: Retorna una lista de todas las etiquetas registradas.
+
+        - Etiquetas
+      responses:
+        '201':
+          description: Lista de etiquetas obtenida
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tag'
+        '500':
+          description: Error del servidor
+
+  /tag/createTag:
+    post:
+      tags:
+        - Tag
+      summary: Crear una etiqueta
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                descripcion:
+                  type: string
+            example:
+              descripcion: etiqueta_ejemplo
+      responses:
+        '201':
+          description: Etiqueta creada
+  /tag/updateTag/{id}:
+    put:
+      tags:
+        - Tag
+      summary: Actualizar una etiqueta
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                descripcion:
+                  type: string
+            example:
+              descripcion: etiqueta_actualizada
+      responses:
+        '201':
+          description: Etiqueta actualizada
+  /tag/deleteTag/{id}:
+    delete:
+      tags:
+        - Tag
+      summary: Eliminar etiqueta
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type : string }
+      responses:
+        '201':
+          description: Etiqueta eliminada
+  
+
+  /tag/setTags/{idPost}:
+    put:
+      tags:
+        - Tag
+      summary: Asociar múltiples etiquetas a un post
+      parameters:
+        - in: path
+          name: idPost
+          required: true
+          schema:
+            type : string
+          description: ID del post al que se le agregarán las etiquetas
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type : string
+            example:
+              - id: "16851b2bb66038253bb6a7b11"
+              - id: "16851b12366038253bb6a7b11"
+      responses:
+        '201':
+          description: Etiquetas asociadas correctamente
+
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        nickName:
+          type: string
+          example: usuario1
+        email:
+          type: string
+          example: usuario1@gmail.com
+    Post:
+      type: object
+      properties:
+        contenido:
+          type: string
+          example: Este es un post de ejemplo
+        
+    Image:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          example: https://www.ejemplo.com/imagen.jpg
+    Comment:
+      type: object
+      properties:
+        comentario:
+          type: string 
+          example: Este es un comentario de ejemplo
+        nickName:
+          type: string
+          example: usuario1
+    Tag: 
+      type: object
+      properties:
+        descripcion:
+          type: string
+          example: etiqueta_ejemplo

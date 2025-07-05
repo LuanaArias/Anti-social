@@ -1,0 +1,860 @@
+{
+	"info": {
+		"_postman_id": "6e26430a-f0db-40e5-8a8d-609d2b82eed5",
+		"name": "Trabajo Practico Mongo Grupo 404",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43875216"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nickName\": \"eluserEjem\",\r\n  \"email\": \"eluserejemplo@example.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/createUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"createUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/getUser/685981e72ce5576d07999098",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"getUser",
+								"685981e72ce5576d07999098"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/getAllUsers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"getAllUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User NickName",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nickName\": \"elMasPersis\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/updateNickName/685981e72ce5576d07999098",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"updateNickName",
+								"685981e72ce5576d07999098"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Email",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"elPersis@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/updateEmail/685981e72ce5576d07999098",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"updateEmail",
+								"685981e72ce5576d07999098"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Follow User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/seguirUsuario/685981e72ce5576d07999098/68583a76c5236ea9a1b16a56",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"seguirUsuario",
+								"685981e72ce5576d07999098",
+								"68583a76c5236ea9a1b16a56"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/deleteUser/68583aadd1ed2ea29d13f1f3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"deleteUser",
+								"68583aadd1ed2ea29d13f1f3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tag",
+			"item": [
+				{
+					"name": "Post tag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"tag de grupo 404\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tag/createTag",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tag",
+								"createTag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tag",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"tag de grupo 404\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/tag/getTag/685987ee79d4f2b0e66404a0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tag",
+								"getTag",
+								"685987ee79d4f2b0e66404a0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all tags",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"tag de grupo 404\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/tag/getAllTags",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tag",
+								"getAllTags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update tag",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"cambiando el tag\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/tag/updateTag/685987ee79d4f2b0e66404a0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tag",
+								"updateTag",
+								"685987ee79d4f2b0e66404a0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete tag",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/tag/deleteTag/685987ee79d4f2b0e66404a0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tag",
+								"deleteTag",
+								"685987ee79d4f2b0e66404a0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add all tags to post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\":\"6854c0e9ebc2fd1483b14872\"\r\n    },\r\n    {\r\n        \"id\":\"6854d011dc69d804a67e2b23\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tag/setTags/685984262ce5576d079990b0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tag",
+								"setTags",
+								"685984262ce5576d079990b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tags to Post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/tag/getTagsToPost/685984262ce5576d079990b0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tag",
+								"getTagsToPost",
+								"685984262ce5576d079990b0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Create post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contenido\":\"Este es un post para probar\",\r\n    \"nickName\":\"lucasdro\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/post/createPost",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"post",
+								"createPost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/post/getPost/685984262ce5576d079990b0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"post",
+								"getPost",
+								"685984262ce5576d079990b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/post/getAllPost",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"post",
+								"getAllPost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all user post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/post/getAllUserPost/68583a76c5236ea9a1b16a56",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"post",
+								"getAllUserPost",
+								"68583a76c5236ea9a1b16a56"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contenido\":\"Esta es la verdadera prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/post/updatePost/685871894dde91bece5e30af",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"post",
+								"updatePost",
+								"685871894dde91bece5e30af"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"contenido\":\"post de prueba\",\r\n    \"nickName\":\"grupo404\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/post/deletePost/685871894dde91bece5e30af",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"post",
+								"deletePost",
+								"685871894dde91bece5e30af"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Image",
+			"item": [
+				{
+					"name": "Get image",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\":\"http://grupo404/ejemplo\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/image/getImage/685649d7855d638d943e1dfc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"image",
+								"getImage",
+								"685649d7855d638d943e1dfc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all images",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\":\"http://grupo404/ejemplo\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/image/getImages",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"image",
+								"getImages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add images",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n    \"url\":\"https://www.google.com/url?sa=i&url=https%3A%2F%2Fcatfriendly.com%2F&psig=AOvVaw3bT_J2ZQLZywhxWUSYXSZd&ust=1746931641524000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLDM-\"\r\n},\r\n{\r\n    \"url\":\"https://www.google.com/url?sa=i&url=https%3A%2F%2Fcatfriendly.com%2F&psig=AOvVaw3bT_J2ZQLZywhxWUSYXSZd&ust=1746931641524000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLDM-snxl40DFQAAAAAdAAAAABAE\"\r\n},\r\n{\r\n    \"url\":\"https://www.google.com/https%3A%2F%2Fcatfriendly.com%2F&psig=AOvVaw3bT_J2ZQLZywhxWUSYXSZd&ust=1746931641524000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLDM-snxl40DFQAAAAAdAAAAABAE\"\r\n},\r\n{\r\n    \"url\":\"https://www.google.com/url?sa=i&url=https%3A%2F%2Fcatfriendly.com%2F&psig=AOvVaw3bT_J2ZQLZywhxWUSYXSZd&ust=174693164opi=89978449&ved=0CBAQjRxqFwoTCLDM-snxl40DFQAAAAAdAAAAABAE\"\r\n}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/image/addImages/685984262ce5576d079990b0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"image",
+								"addImages",
+								"685984262ce5576d079990b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all post images",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n    \"url\":\"https://www.google.com/url?sa=i&url=https%3A%2F%2Fcatfriendly.com%2F&psig=AOvVaw3bT_J2ZQLZywhxWUSYXSZd&ust=1746931641524000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLDM-snxl40DFQAAAAAdAAAAABAE\"\r\n},\r\n{\r\n    \"url\":\"https://www.google.com/url?sa=i&url=https%3A%2F%2Fcatfriendly.com%2F&psig=AOvVaw3bT_J2ZQLZywhxWUSYXSZd&ust=1746931641524000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLDM-snxl40DFQAAAAAdAAAAABAE\"\r\n},\r\n{\r\n    \"url\":\"https://www.google.com/url?sa=i&url=https%3A%2F%2Fcatfriendly.com%2F&psig=AOvVaw3bT_J2ZQLZywhxWUSYXSZd&ust=1746931641524000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLDM-snxl40DFQAAAAAdAAAAABAE\"\r\n},\r\n{\r\n    \"url\":\"https://www.google.com/url?sa=i&url=https%3A%2F%2Fcatfriendly.com%2F&psig=AOvVaw3bT_J2ZQLZywhxWUSYXSZd&ust=1746931641524000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLDM-snxl40DFQAAAAAdAAAAABAE\"\r\n}\r\n]"
+						},
+						"url": {
+							"raw": "http://localhost:3000/image/getImagesToPost/68584650202c0c25c03ecee1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"image",
+								"getImagesToPost",
+								"68584650202c0c25c03ecee1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update image",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\":\"http://ejemplodeimagen/ejemplo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/image/updateImage/68564a6d855d638d943e1e02",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"image",
+								"updateImage",
+								"68564a6d855d638d943e1e02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete image",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\":\"http://ejemplodeimagen/ejemplo\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/image/deleteImage/68564a6d855d638d943e1e02",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"image",
+								"deleteImage",
+								"68564a6d855d638d943e1e02"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Create comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comentario\":\"un comentario mas por las dudas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/comment/createComment/685984262ce5576d079990b0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comment",
+								"createComment",
+								"685984262ce5576d079990b0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get comment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comentario\":\"primer comentario\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/comment/getComment/6859866179d4f2b0e6640488",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comment",
+								"getComment",
+								"6859866179d4f2b0e6640488"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all comments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comentario\":\"primer comentario\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/comment/getAllComments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comment",
+								"getAllComments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update comment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comentario\":\"comentario para probar\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/comment/updateComment/6859866179d4f2b0e6640488",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comment",
+								"updateComment",
+								"6859866179d4f2b0e6640488"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete comment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/comment/deleteComment/6859866179d4f2b0e6640488",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comment",
+								"deleteComment",
+								"6859866179d4f2b0e6640488"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all post comment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/comment/getAllPostComments/685984262ce5576d079990b0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comment",
+								"getAllPostComments",
+								"685984262ce5576d079990b0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
